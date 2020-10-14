@@ -1,0 +1,25 @@
+
+
+/*#################***Foooter***################*/
+
+ul{
+    list-style: none;
+    color: #fff;
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+    /* background: lightcyan; */
+  }
+  
+  ul li a{
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .footer-link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 150px;
+    margin-top: 40px;
+  }

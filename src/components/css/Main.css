@@ -1,0 +1,118 @@
+
+
+/*#################***Main content***################*/
+
+main{
+  display: flex;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  width: 50vw;
+  background: #353535;
+  margin: 0 auto;
+  padding: 40px 50px;
+}
+
+.close-btn{
+    position: relative;
+    top: -50%;
+    left: 90%;
+
+  }
+
+.form-container{
+  width: 45%;
+  height: 60;
+}
+
+/* .image-container{
+  width: 50%;
+} */
+
+
+.heading h3{
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 12px;
+}
+
+.heading p{
+  font-size: 17px;
+  padding-bottom: 20px;
+}
+
+.heading a{
+  font-size: 17px;
+  text-decoration: none;
+  color: #34FFC8;
+}
+
+
+
+
+/****Form Section****/
+form input{
+  display: block;
+  color: #fff;
+  border: none;
+  width: 80%;
+  padding: 10px;
+  outline-style: none;
+  margin-bottom: 10px;
+  background: #000;
+}
+
+form input[type="submit"]{
+  color: #333;
+  background: #34FFC8;
+  border-radius: 4px;
+  border: none;
+  margin-bottom: 20px;
+}
+
+
+/****Button Sign up Options section****/
+
+.text{
+    font-size: 12px;
+  }
+  .display-bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 60px;
+  }
+  .line-one,
+  .line-two{
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    background: #f0f0f0;;
+  }
+  .line-one{
+    margin-right: 5px;
+  }
+  .line-two{
+    margin-left: 5px;
+  }
+  
+  .form-container button{
+    background: #000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    border-radius: 15px;
+    outline-style: none;
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .facebook{
+    margin-left: 55px;
+  }
+  
+
+

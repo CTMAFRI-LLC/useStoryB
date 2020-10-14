@@ -1,0 +1,40 @@
+Arguments: 
+  /var/lib/snapd/snap/node/3128/bin/node /snap/node/3128/bin/yarn.js config get registry
+
+PATH: 
+  /home/abdulra/.npm/_npx/267861/bin:/home/abdulra/.deno/bin:/home/abdulra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  12.19.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: EACCES: permission denied, write
+      at writeSync (fs.js:679:3)
+      at SyncWriteStream._write (internal/fs/sync_write_stream.js:24:3)
+      at doWrite (_stream_writable.js:403:12)
+      at writeOrBuffer (_stream_writable.js:387:5)
+      at SyncWriteStream.Writable.write (_stream_writable.js:318:11)
+      at ConsoleReporter._log (/var/lib/snapd/snap/node/3128/lib/cli.js:96770:17)
+      at ConsoleReporter.log (/var/lib/snapd/snap/node/3128/lib/cli.js:96758:10)
+      at get (/var/lib/snapd/snap/node/3128/lib/cli.js:87536:14)
+      at Object.<anonymous> (/var/lib/snapd/snap/node/3128/lib/cli.js:25940:25)
+      at Generator.next (<anonymous>)
+
+npm manifest: 
+  {
+    "name": "auth-with-google-and-facebook",
+    "version": "0.1.0",
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
