@@ -19,8 +19,12 @@ body{
 @import "./components/css/Header.css";
 
 
-/*#################***Main***################*/
+/*#################***Main Content-Layout***################*/
 @import "./components/css/Layout.css";
+
+
+/*#################***Forms***################*/
+@import "./components/css/Forms.css";
 
 
 

@@ -7,11 +7,11 @@
     justify-content: space-between;
     max-height: 70%;
     padding: 0px 100px;
-    /* background-color: aliceblue; */
   }
   
   /**** Sign in Page Button****/
-  .signin-btn {
+
+  .sign-btn {
     background: #34FFC8;
     border-radius: 4px;
     height: 40px;
@@ -21,9 +21,10 @@
     outline: none;
   }
   
-  .signin-btn a{
+  .sign-btn a{
     text-decoration: none;
     text-align: center;
     color: #333;
     font-weight: bold;
   }
+

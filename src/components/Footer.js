@@ -1,11 +1,11 @@
 import React from 'react';
-import Volume from './img/Volume.svg';
+import Volume from '../img/Volume.svg';
 
 
 function Footer() {
     return (
       <footer className="footer">
-  <div class="footer-link">
+  <div className="footer-link">
     <ul>
       <li><a href=".">SUPPORT</a></li>
       <li><a href=".">ABOUT</a></li>
