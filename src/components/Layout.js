@@ -17,7 +17,6 @@ function Main(props) {
 
   const responseFacebook = (response) => {
      console.log(response);
-     console.log(response.profileobj)
   }
     return (
 
@@ -55,7 +54,6 @@ function Main(props) {
           <button className="facebook">
           <FacebookLogin
         appId="4666313333440145"
-        data-button-type="FACEBOOK"
         fields="name,email,picture"
         callback={responseFacebook}
       />
