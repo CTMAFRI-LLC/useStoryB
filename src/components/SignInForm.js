@@ -1,35 +1,47 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { appContext } from "../stores/app-store";
+import { useHistory, Route } from "react-router-dom";
 
 //importing Google anf facebook dependencies
 import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 import makeRequest from "../lib/makeRequest";
 
-//Setting Variables for URLs
+//Setting Variables for URLs and Login state
 
 const GOOGLE_URL = "https://ctmafri.herokuapp.com/api/auth/google/";
 const FACEBOOK_URL = "https://ctmafri.herokuapp.com/api/auth/facebook";
+// const [isSignedIn, setSignedIn] = useState(null);
 
 function SignInForm() {
-  const { store, publish } = useContext(appContext);
-  //setting state for response Data
-  const [Gkey, setGkey] = useState(null);
-  const [Fkey, setFkey] = useState(null);
+  const { store, publish, isAuthenticated } = useContext(appContext);
+  const history = useHistory();
+  const setAuth = (key) => {
+    const query = new URLSearchParams(history.location.search);
+    window.localStorage.setItem("8n2b5", key);
+    history.push(query.get("from") || "/");
+  };
+
+  // Check already logged in
+  if (isAuthenticated()) {
+    history.push("/");
+    return null;
+  }
 
   ///getting response data and sending POST requests to URLs
   //GOOGLE
   const responseGoogle = async (response) => {
-    const googleData = await makeRequest(GOOGLE_URL, {
+    const res = await makeRequest(GOOGLE_URL, {
       access_token: response.accessToken,
     });
-    setGkey(googleData.key);
 
-    // Displaying results in Console
-  console.log(
-    `#######Google######
-          ${Gkey}`
-  );
+    // Checking for error
+    if (res.error.status) {
+      // Push Error Notification
+      return;
+    }
+
+    setAuth(res.data.key);
   };
 
   //FACEBOOK
@@ -37,15 +49,7 @@ function SignInForm() {
     const facebookData = await makeRequest(FACEBOOK_URL, {
       access_token: response.accessToken,
     });
-    setFkey(facebookData.detail);
-
-     //Displaying results in Console
-  console.log(
-    `#######FACEBOOK######
-          ${Fkey}`
-  );
   };
-  
 
   return (
     <div
@@ -58,10 +62,12 @@ function SignInForm() {
       <div className="heading">
         <h3>Sign In</h3>
         <p>
-          New user? <a role="button" onClick={() => publish({currentForm: "sign_up"}) }>Create an account</a>
+          New user?{" "}
+          <a role="button" onClick={() => publish({ currentForm: "sign_up" })}>
+            Create an account
+          </a>
         </p>
       </div>
-
       {/* Input Form */}
       <form>
         <input type="email" placeholder="Email Address" />
@@ -72,7 +78,6 @@ function SignInForm() {
         </span>
         <input type="submit" value="SIGN IN" />
       </form>
-
       {/* One click sign up/ sign in Buttons */}
       <div className="display-buttons">
         <span className="line-one"></span>

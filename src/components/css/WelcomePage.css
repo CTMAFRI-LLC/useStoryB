@@ -1,0 +1,8 @@
+
+.welcome{
+    height: 100vh;
+    margin:0 auto;
+    font-size: larger;
+    color: rgb(25, 167, 25);
+    background: grey;
+}

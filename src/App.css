@@ -31,6 +31,8 @@ body{
 /*#################***Footer***################*/
 @import "./components/css/Footer.css";
 
+@import "./components/css/WelcomePage.css";
+
 
 
 
