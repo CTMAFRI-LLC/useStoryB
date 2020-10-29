@@ -1,0 +1,64 @@
+.container{
+    display: flex;
+    width: 95%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+
+}
+
+.left-container,.right-container{
+    height: 100%;
+}
+
+.left-container{
+    background: #87cfeb23;
+    width: 60%;
+}
+
+
+nav ul{
+    margin: 5rem 0  0 30rem;
+    display: flex;
+    width: 45%;
+    /* background: crimson;*/
+    align-items: center;
+    justify-content:space-between;
+    font-size: 2rem;
+    
+}
+
+nav li{
+    list-style: none;
+}
+
+.right-container{
+    position: relative;
+    background: #87cfeb63;;
+    width: 40%;
+}
+
+.right-text{
+    width: 100%;
+    margin: 5rem 0 0 5rem;
+    line-height: 2;
+}
+
+.right-text h1{
+    font-size: 4rem;
+}
+
+.right-text p{
+    font-size: 2rem;
+}
+ul button{
+    border: none;
+    outline: none;
+    font-size: inherit;
+    background: inherit;
+    color: inherit;
+
+}

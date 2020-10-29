@@ -1,5 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, } from "react";
 import { appContext } from "../stores/app-store";
+import { useHistory, } from "react-router-dom";
+
 
 //importing Google anf facebook dependencies
 import GoogleLogin from "react-google-login";
@@ -11,40 +13,52 @@ import makeRequest from "../lib/makeRequest";
 const GOOGLE_URL = "https://ctmafri.herokuapp.com/api/auth/google/";
 const FACEBOOK_URL = "https://ctmafri.herokuapp.com/api/auth/facebook";
 
-function SignUpForm() {
-  const { store, publish } = useContext(appContext);
+// const [isSignedIn, setSignedIn] = useState(null);
 
-  //setting state for response Data
-  const [Gkey, setGkey] = useState(null);
-  const [Fkey, setFkey] = useState(null);
+function SignUpForm() {
+  const { store, publish, isAuthenticated } = useContext(appContext);
+  const history = useHistory();
+  const setAuth = (key) => {
+    const query = new URLSearchParams(history.location.search);
+    window.localStorage.setItem("8n2b5", key);
+    history.push(query.get("from") || "/");
+  };
+
+  // Check already logged in
+  if (isAuthenticated()) {
+    history.push("/");
+    return null;
+  }
 
   ///getting response data and sending POST requests to URLs
   //GOOGLE
   const responseGoogle = async (response) => {
-    const googleData = await makeRequest(GOOGLE_URL, {
+    const res = await makeRequest(GOOGLE_URL, {
       access_token: response.accessToken,
     });
-    setGkey(googleData.key);
+
+    // Checking for error
+    if (res.error.status) {
+      // Push Error Notification
+      return;
+    }
+
+    setAuth(res.data.key);
   };
 
   //FACEBOOK
   const responseFacebook = async (response) => {
-    const facebookData = await makeRequest(FACEBOOK_URL, {
+    const res = await makeRequest(FACEBOOK_URL, {
       access_token: response.accessToken,
     });
-    setFkey(facebookData.detail);
+
+    if (res.error.status) {
+      // Push Error Notification
+      return;
+    }
+
+    setAuth(res.data.key);
   };
-  //Displaying results in Console
-  // console.log(
-  //   `#######Google######
-  //         ${Gkey}`
-  // );
-
-  // console.log(
-  //   `#######FACEBOOK######
-  //         ${Fkey}`
-  // );
-
   return (
     <div
       className={`form-container ${

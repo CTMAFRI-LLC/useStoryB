@@ -22,7 +22,7 @@ function SignInForm() {
     history.push(query.get("from") || "/");
   };
 
-  // Check already logged in
+  // Checking if already logged in
   if (isAuthenticated()) {
     history.push("/");
     return null;
@@ -37,6 +37,7 @@ function SignInForm() {
 
     // Checking for error
     if (res.error.status) {
+
       // Push Error Notification
       return;
     }
@@ -46,9 +47,16 @@ function SignInForm() {
 
   //FACEBOOK
   const responseFacebook = async (response) => {
-    const facebookData = await makeRequest(FACEBOOK_URL, {
+    const res = await makeRequest(FACEBOOK_URL, {
       access_token: response.accessToken,
     });
+
+    if (res.error.status) {
+      // Push Error Notification
+      return;
+    }
+
+    setAuth(res.data.key);
   };
 
   return (
@@ -84,6 +92,7 @@ function SignInForm() {
         <div className="text">Or Sign In With</div>
         <span className="line-two"></span>
       </div>
+      {/* google button */}
       <div className="click-signups">
         <div className="google">
           <GoogleLogin
@@ -94,7 +103,7 @@ function SignInForm() {
             cookiePolicy={"single_host_origin"}
           />
         </div>
-
+{/* facebook button */}
         <div className="facebook">
           <FacebookLogin
             appId="4666313333440145"

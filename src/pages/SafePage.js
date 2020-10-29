@@ -5,31 +5,34 @@ import Protected from "../components/Protected";
 import { appContext } from "../stores/app-store";
 
 function SuccessPage() {
+  //LOGOUT FUCNTION FROM APPCONTEXT
   const { logout } = useContext(appContext);
   return (
     <Protected>
-      <div>
-        <nav className="welcome">
-          <div className="container">
-            <button onClick={logout}>Logout</button>
-            <a className="brand-logo" href=".">
-              {" "}
-              PY Company Safe
-            </a>
-            <ul className="nav-links">
-              <li>
-                <a href=".">Home</a>
-              </li>
-              <li>
-                <a href=".">About</a>
-              </li>
-              <li>
-                <a href=".">Contact Us</a>
-              </li>
+       <div class="container">
+      <div class="left-container">
+        <nav>
+            <ul>
+            <button onClick={logout}>LOGOUT</button>
+                <li>FAQ</li>
+                <li>CONTACT US</li>
             </ul>
-          </div>
         </nav>
       </div>
+      
+      <div class="right-container">
+        <img src="" alt="Logo"/>
+        <div class="right-text">
+        <h1>Py Company</h1>
+         <h2>Protected Page</h2>
+        </div>
+        
+        
+          <div class="cylinder">
+            
+          </div>
+      </div>
+    </div>
     </Protected>
   );
 }

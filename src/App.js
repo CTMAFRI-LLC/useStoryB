@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Auth from "./pages/Auth";
 import Home from "./pages/Home";
 import SafePage from "./pages/SafePage";
-import SafePage2 from "./pages/SafePage2";
 
 //importing styles
 import "./App.css";
@@ -25,9 +24,6 @@ function App() {
             </Route>
             <Route path="/safe" exact>
               <SafePage />
-            </Route>
-            <Route path="/safe2" exact>
-              <SafePage2 />
             </Route>
           </Switch>
         </div>

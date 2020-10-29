@@ -1,31 +1,38 @@
-import React, {useContext} from "react";
-import { appContext } from "../stores/app-store";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+
+
 
 function Home() {
-  const {logIn} = useContext(appContext);
+
   return (
-      <div>
-        <button onClick={logIn} >Sing In</button>
-        <nav className="welcome">
-          <div className="container">
-            <a className="brand-logo" href=".">
-              {" "}
-              PY Company
-            </a>
-            <ul className="nav-links">
-              <li>
-                <a href=".">Home</a>
-              </li>
-              <li>
-                <a href=".">About</a>
-              </li>
-              <li>
-                <a href=".">Contact Us</a>
-              </li>
+    <div class="container">
+      <div class="left-container">
+        <nav>
+            <ul>
+                <li>
+                 <Link to="/safe">SIGN IN</Link> </li>
+                <li>
+                <Link to="/">FAQ</Link></li>
+                <li>
+                <Link to="/">CONTACT US</Link></li>
             </ul>
-          </div>
         </nav>
       </div>
+      
+      <div class="right-container">
+        <img src="" alt="Logo"/>
+        <div class="right-text">
+         <h1>Py Company</h1>
+         <h2>Public Page</h2>
+        </div>
+        
+        
+          <div class="cylinder">
+            
+          </div>
+      </div>
+    </div>
   );
 }
 

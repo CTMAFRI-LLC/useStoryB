@@ -3,6 +3,9 @@ import React, { useContext } from "react";
 
 import { appContext } from "../stores/app-store";
 
+//VALIDATING LOGIN BEFORE REDIRECTING 
+//USING HISTORY TO NAVIGATE BETWEEN PAGES
+
 const Protected = ({ children }) => {
   const history = useHistory();
   const { isAuthenticated } = useContext(appContext);
@@ -15,13 +18,3 @@ const Protected = ({ children }) => {
 };
 
 export default Protected;
-
-// const Protected = ({ children }) => {
-//     const history = useHistory();
-//     if (!window.localStorage.getItem("8n2b5")) {
-//       history.push("/sign-up");
-//       return null;
-//     }
-
-//     return children;
-//   };

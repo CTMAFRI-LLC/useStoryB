@@ -11,7 +11,8 @@ export const AppStore = ({ children }) => {
     localStorage.removeItem("8n2b5");
     setstate(s => ({...s, isLoggedIn: false}))
   };
-
+ 
+  // isLoggedIn: false
   return (
     <appContext.Provider value={{ store, publish, isAuthenticated, logout }}>
       {children}
