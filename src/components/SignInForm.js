@@ -31,32 +31,34 @@ function SignInForm() {
   ///getting response data and sending POST requests to URLs
   //GOOGLE
   const responseGoogle = async (response) => {
-    const res = await makeRequest(GOOGLE_URL, {
+    const resG = await makeRequest(GOOGLE_URL, {
       access_token: response.accessToken,
     });
 
     // Checking for error
-    if (res.error.status) {
+    if (resG.error.status) {
 
       // Push Error Notification
+      alert("Failed to Sign-in/Sign-UP")
       return;
     }
 
-    setAuth(res.data.key);
+    setAuth(resG.data.key);
   };
 
   //FACEBOOK
   const responseFacebook = async (response) => {
-    const res = await makeRequest(FACEBOOK_URL, {
+    const resF = await makeRequest(FACEBOOK_URL, {
       access_token: response.accessToken,
     });
 
-    if (res.error.status) {
+    if (resF.error.status) {
       // Push Error Notification
+      alert("Failed to Sign-in/Sign-UP")
       return;
     }
 
-    setAuth(res.data.key);
+    setAuth(resF.data.key);
   };
 
   return (
